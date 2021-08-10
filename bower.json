@@ -1,5 +1,5 @@
 {
-    "name": "ace-builds",
+    "name": "@f0rce/ace-builds",
     "description": "Ace (Ajax.org Cloud9 Editor)",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"

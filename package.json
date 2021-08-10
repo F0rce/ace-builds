@@ -1,8 +1,8 @@
 {
-    "name": "ace-builds",
+    "name": "@f0rce/ace-builds",
     "main": "./src-noconflict/ace.js",
     "typings": "ace.d.ts",
-    "version": "1.4.12",
+    "version": "1.5.0",
     "description": "Ace (Ajax.org Cloud9 Editor)",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"

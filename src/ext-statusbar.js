@@ -34,9 +34,9 @@ var StatusBar = function(editor, parentNode) {
         
         if (!sel.isEmpty()) {
             var r = editor.getSelectionRange();
-            add("(" + (r.end.row - r.start.row) + ":"  +(r.end.column - r.start.column) + ")", " ");
+            add("(" + (parseInt(r.end.row + 1) - parseInt(r.start.row + 1)) + ":"  +(parseInt(r.end.column + 1) - parseInt(r.start.column + 1)) + ")", " ");
         }
-        add(c.row + ":" + c.column, " ");        
+        add(parseInt(c.row + 1) + ":" + parseInt(c.column + 1), " ");        
         if (sel.rangeCount)
             add("[" + sel.rangeCount + "]", " ");
         status.pop();
