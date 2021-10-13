@@ -2,19 +2,19 @@
     "name": "@f0rce/ace-builds",
     "main": "./src-noconflict/ace.js",
     "typings": "ace.d.ts",
-    "version": "1.5.0",
+    "version": "1.5.1",
     "description": "Ace (Ajax.org Cloud9 Editor)",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/ajaxorg/ace-builds.git"
+        "url": "https://github.com/f0rce/ace-builds.git"
     },
     "author": "",
     "license": "BSD-3-Clause",
     "bugs": {
-        "url": "https://github.com/ajaxorg/ace-builds/issues"
+        "url": "https://github.com/f0rce/ace-builds/issues"
     },
-    "homepage": "https://github.com/ajaxorg/ace-builds"
+    "homepage": "https://github.com/f0rce/ace-builds"
 }

@@ -9,12 +9,12 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/ajaxorg/ace-builds.git"
+        "url": "https://github.com/f0rce/ace-builds.git"
     },
     "author": "",
     "license": "BSD",
     "bugs": {
-        "url": "https://github.com/ajaxorg/ace-builds/issues"
+        "url": "https://github.com/f0rce/ace-builds/issues"
     },
-    "homepage": "https://github.com/ajaxorg/ace-builds"
+    "homepage": "https://github.com/f0rce/ace-builds"
 }
