@@ -1,90 +1,90 @@
-2021.09.30 Version 1.5.1
+2022.01.26 Version 1.5.2 (ajaxorg)
+* update vim mode
+* remove slow regex in beautify extension
+
+2021.09.30 Version 1.5.1 (ajaxorg)
 * added useStrictCSP global option to use in environments where dynamic style creation is disabled
   see demo/csp.html for an example of a page which loads external css files instead of generating styles with javascript
 * updated vim mode, added support for gqq command 
 
-2021.08.10 Version 1.5.0
+2021.08.10 Version 1.5.0 (F0rce)
 * the statusbar starts with 1:1 instead of 0:0 (more userfriendly)
 
-2020.07.06 Version 1.4.12
+2020.07.06 Version 1.4.12 (ajaxorg)
 * removed unused es5-shim
 * imporved ruby and vbscript highlighting and folding
 * workaround for double space being converted to dot on mobile keyboards
 
-2020.04.15 Version 1.4.10
+2020.04.15 Version 1.4.10 (ajaxorg)
 * added workaround for chrome bug causing memory leak after calling editor.destroy
 * added code folding support for vbscript mode
 
-2020.04.01 Version 1.4.9
+2020.04.01 Version 1.4.9 (ajaxorg)
 * added option to disable autoindent 
 * added new language modes
 * fixed backspace not working with some mobile keyboards
 
-2020.01.14 Version 1.4.8
+2020.01.14 Version 1.4.8 (ajaxorg)
 * highlight both matched braces, and highlight unmatched brace in red
 * improve snippet manager
 * compatibility with webpack file-loader v5
 * improve vim mode
 
-2019.10.17 Version 1.4.7
+2019.10.17 Version 1.4.7 (ajaxorg)
 * add placeholder option
 
-2019.09.08 Version 1.4.6
+2019.09.08 Version 1.4.6 (ajaxorg)
 * restore native behavior of ctrl-p on mac (jumptomatching command is moved to cmd-\)
 * improve snippet manager
 * fix backspace handling on mobile
 
-2019.06.17 Version 1.4.5
+2019.06.17 Version 1.4.5 (ajaxorg)
 * improve scrolling and selection on mobile 
 * improve type definitions
 
-2019.04.24 Version 1.4.4
+2019.04.24 Version 1.4.4 (ajaxorg)
 * add experimental command prompt
 * add chrystal, nim and nginx highlight rules
 * fix regression in vim mode on ios
 
-2019.02.21 Version 1.4.3
+2019.02.21 Version 1.4.3 (ajaxorg)
 * add sublime keybindings
 * add rtl option
 * implement ` and < textobjects in vim mode
 
-2018.11.21 Version 1.4.2
+2018.11.21 Version 1.4.2 (ajaxorg)
 * fix regression in vim mode
 * improve keyboard input handling on ipad and IE
 * add new syntax highlighters
 
-2018.08.07 Version 1.4.1
+2018.08.07 Version 1.4.1 (ajaxorg)
 * fix regression in autocomplete
 
-2018.08.06 Version 1.4.0
-
+2018.08.06 Version 1.4.0 (ajaxorg)
 * remove usage of innerHTML
 * improved handling of textinput for IME and mobile
 * add support for relative line numbers
 * improve autocompletion popup 
 
-2018.03.26 Version 1.3.3
+2018.03.26 Version 1.3.3 (ajaxorg)
 * fix regession in static-highlight extension
 * use css animation for cursor blinking
 
-2018.03.21 Version 1.3.2
+2018.03.21 Version 1.3.2 (ajaxorg)
 * add experimental support for using ace-builds with webpack
 
-2018.02.11 Version 1.3.1
-
+2018.02.11 Version 1.3.1 (ajaxorg)
 * fixed regression with selectionChange event not firing some times
 * improved handling of non-ascii characters in vim normal mode
 
-2018.01.31 Version 1.3.0
-
+2018.01.31 Version 1.3.0 (ajaxorg)
 * added copy copyWithEmptySelection option 
 * improved undoManager
 * improved settings_menu plugin
 * improved handling of files with very long lines
 * fixed bug with scrolling editor out of view in transformed elements
 
-2017.10.17 Version 1.2.9
-
+2017.10.17 Version 1.2.9 (ajaxorg)
 * added support for bidirectional text, with monospace font (Alex Shensis)
 * added support for emoji 😊
 
@@ -96,32 +96,27 @@
 * New Themes
   - Dracula (Austin Schwartz)
 
-2017.07.02 Version 1.2.8
+2017.07.02 Version 1.2.8 (ajaxorg)
 * Fixed small bugs in searchbox and autocompleter
 
-2017.06.18 Version 1.2.7
-
+2017.06.18 Version 1.2.7 (ajaxorg)
 * Added Support for arrow keys on external IPad keyboard (Emanuele Tamponi)
 * added match counter to searchbox extension
 
 - implemented higlighting of multiline strings in yaml mode (Maxim Trushin)
 - improved haml syntax highlighter (Andrés Álvarez)
 
-2016.12.03 Version 1.2.6
-
+2016.12.03 Version 1.2.6 (ajaxorg)
 * Fixed IME handling on new Chrome
 * Support for php 7 in the syntax checker
 
-2016.08.16 Version 1.2.5
-
+2016.08.16 Version 1.2.5 (ajaxorg)
 * Fixed regression in noconflict mode
 
-2016.07.27 Version 1.2.4
-
+2016.07.27 Version 1.2.4 (ajaxorg)
 * Maintenance release with several new modes and small bugfixes
 
-2016.01.17 Version 1.2.3
-
+2016.01.17 Version 1.2.3 (ajaxorg)
 * Bugfixes
   - fix memory leak in setSession (Tyler Stalder)
   - double click not working on linux/mac
@@ -130,15 +125,12 @@
   - reStructuredText (Robin Jarry)
   - NSIS (Jan T. Sott)
 
-
-2015.10.28 Version 1.2.1
-
+2015.10.28 Version 1.2.1 (ajaxorg)
 * new language modes
   - Swift
   - JSX
 
-2015.07.11 Version 1.2.0
-
+2015.07.11 Version 1.2.0 (ajaxorg)
 * New Features
   - Indented soft wrap (danyaPostfactum)
   - Rounded borders on selections
@@ -150,12 +142,10 @@
 * new language modes
   - SQLServer (Morgan Yarbrough)
   
-2015.04.03 Version 1.1.9
-
+2015.04.03 Version 1.1.9 (ajaxorg)
   - Small Enhancements and Bugfixes
 
-2014.11.08 Version 1.1.8
-
+2014.11.08 Version 1.1.8 (ajaxorg)
 * API Changes
   - `editor.commands.commandKeyBinding` now contains direct map from keys to commands instead of grouping them by hashid
   
@@ -166,14 +156,12 @@
 * new language modes
   - Elixir, Elm
  
-2014.09.21 Version 1.1.7
-
+2014.09.21 Version 1.1.7 (ajaxorg)
 * Bugfixes
   - fix several bugs in autocompletion
   - workaround for inaccurate getBoundingClientRect on chrome 37
 
-2014.08.17 Version 1.1.6
-
+2014.08.17 Version 1.1.6 (ajaxorg)
 * Bugfixes
   - fix regression in double tap to highlight 
   - Improved Latex Mode (Daniel Felder)
@@ -186,16 +174,14 @@
  - Eiffel (Victorien Elvinger)
  - G-code (Adam Joseph Cook)
  
-2014.07.09 Version 1.1.5
-
+2014.07.09 Version 1.1.5 (ajaxorg)
 * Bugfixes
   - fix regression in autocomplete popup
 
 * new language modes
  - gitignore (Devon Carew)
  
-2014.07.01 Version 1.1.4
-
+2014.07.01 Version 1.1.4 (ajaxorg)
 * New Features
   - Highlight matching tags (Adam Jimenez)
   - Improved jump to matching command (Adam Jimenez)
@@ -204,8 +190,7 @@
  - AppleScript (Yaogang Lian)
  - Vala
 
-2014.03.08 Version 1.1.3
-
+2014.03.08 Version 1.1.3 (ajaxorg)
 * New Features
   - Allow syntax checkers to be loaded from CDN (Derk-Jan Hartman)
   - Add ColdFusion behavior (Abram Adams)
@@ -216,8 +201,7 @@
   - Gherkin (Patrick Nevels)
   - Smarty
 
-2013.12.02 Version 1.1.2
-
+2013.12.02 Version 1.1.2 (ajaxorg)
 * New Features
   - Accessibility Theme for Ace (Peter Xiao)
   - use snipetManager for expanding emmet snippets
@@ -240,8 +224,7 @@
   - Soy
   - Handlebars
 
-2013.06.04 Version 1.1.1
-
+2013.06.04 Version 1.1.1 (ajaxorg)
   - Improved emacs keybindings (Robert Krahn)
   - Added markClean, isClean methods to UndoManager (Joonsoo Jeon)
   - Do not allow `Toggle comments` command to remove spaces from indentation
@@ -258,8 +241,7 @@
   - Twig
   - Verilog
 
-2013.05.01, Version 1.1.0
-
+2013.05.01, Version 1.1.0 (ajaxorg)
 * API Changes
   - Default position of the editor container is changed to relative. Add `.ace_editor {position: absolute}` css rule to restore old behavior
   - Changed default line-height to `normal` to not conflict with bootstrap. Use `line-height: inherit` for old behavior.
@@ -323,8 +305,7 @@
   - Chaos 
   - Terminal 
    
-2012.09.17, Version 1.0.0
-
+2012.09.17, Version 1.0.0 (ajaxorg)
 * New Features
   - Multiple cursors and selections (https://c9.io/site/blog/2012/08/be-an-armenian-warrior-with-block-selection-on-steroids/)
   - Fold buttons displayed in the gutter
@@ -367,8 +348,7 @@
 
 * Many Small Enhancements and Bugfixes
  
-2011.08.02, Version 0.2.0
-
+2011.08.02, Version 0.2.0 (ajaxorg)
 * Split view (Julian Viereck)
   - split editor area horizontally or vertivally to show two files at the same
     time
@@ -427,8 +407,7 @@
   - Fix scroll wheel sluggishness in Safari
   - Make keyboard infrastructure route keys like []^$ the right way (Julian Viereck)
 
-2011.02.14, Version 0.1.6
-
+2011.02.14, Version 0.1.6 (ajaxorg)
 * Floating Anchors
   - An Anchor is a floating pointer in the document. 
   - Whenever text is inserted or deleted before the cursor, the position of
@@ -457,8 +436,7 @@
   - Highlighting of Python string literals
   - Syntax rule for PHP comments
 
-2011.02.08, Version 0.1.5
-
+2011.02.08, Version 0.1.5 (ajaxorg)
 * Add Coffeescript Mode (Satoshi Murakami)
 * Fix word wrap bug (Julian Viereck)
 * Fix packaged version of the Eclipse mode
@@ -467,13 +445,11 @@
 * Allow tokizing empty lines (Daniel Krech)
 * Make PageUp/Down behavior more consistent with native OS (Joe Cheng)
 
-2011.02.04, Version 0.1.4
-
+2011.02.04, Version 0.1.4 (ajaxorg)
 * Add C/C++ mode contributed by Gastón Kleiman
 * Fix exception in key input
 
-2011.02.04, Version 0.1.3
-
+2011.02.04, Version 0.1.3 (ajaxorg)
 * Let the packaged version play nice with requireJS
 * Add Ruby mode contributed by Shlomo Zalman Heigh
 * Add Java mode contributed by Tom Tasche

@@ -1,9 +1,10 @@
 Ace (Ajax.org Cloud9 Editor)
 ============================
-[![CDNJS](https://img.shields.io/cdnjs/v/ace.svg)](https://cdnjs.com/libraries/ace)
-[![npm](https://img.shields.io/npm/v/ace-builds.svg)](https://www.npmjs.com/package/ace-builds)
+[![npm](https://img.shields.io/npm/v/@f0rce/ace-builds.svg)](https://www.npmjs.com/package/@f0rce/ace-builds)
 
 Ace is a code editor written in JavaScript.
+
+Check the [changelog](./ChangeLog.txt) if you want to see, which changes/versions have been made by [ajaxorg](https://github.com/ajaxorg) or by [F0rce](https://github.com/f0rce).
 
 This repository has only generated files.
 If you want to work on ace please go to https://github.com/ajaxorg/ace instead.
