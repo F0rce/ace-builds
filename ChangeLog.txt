@@ -1,4 +1,4 @@
-2022.02.14 Version 1.5.3-rc.1 (F0rce)
+2022.02.14 Version 1.5.3 (F0rce)
 * changed the regex in ace/autocomplete/util so the autocompletion could be triggered with "."
 
 2022.01.26 Version 1.5.2 (ajaxorg)
