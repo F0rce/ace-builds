@@ -2,7 +2,7 @@
     "name": "@f0rce/ace-builds",
     "main": "./src-noconflict/ace.js",
     "typings": "ace.d.ts",
-    "version": "1.5.2",
+    "version": "1.5.3-rc.1",
     "description": "Ace (Ajax.org Cloud9 Editor)",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
