@@ -4461,62 +4461,54 @@ exports.OptionPanel = OptionPanel;
 
 });
 
-define("ace/ext/statusbar",["require","exports","module","ace/lib/dom","ace/lib/lang"], function (require, exports, module) {
-  "use strict";
-  var dom = require("../lib/dom");
-  var lang = require("../lib/lang");
+define("ace/ext/statusbar",["require","exports","module","ace/lib/dom","ace/lib/lang"], function(require, exports, module) {
+"use strict";
+var dom = require("../lib/dom");
+var lang = require("../lib/lang");
 
-  var StatusBar = function (editor, parentNode) {
+var StatusBar = function(editor, parentNode) {
     this.element = dom.createElement("div");
     this.element.className = "ace_status-indicator";
     this.element.style.cssText = "display: inline-block;";
     parentNode.appendChild(this.element);
 
-    var statusUpdate = lang
-      .delayedCall(
-        function () {
-          this.updateStatus(editor);
-        }.bind(this)
-      )
-      .schedule.bind(null, 100);
-
+    var statusUpdate = lang.delayedCall(function(){
+        this.updateStatus(editor);
+    }.bind(this)).schedule.bind(null, 100);
+    
     editor.on("changeStatus", statusUpdate);
     editor.on("changeSelection", statusUpdate);
     editor.on("keyboardActivity", statusUpdate);
-  };
+};
 
-  (function () {
-    this.updateStatus = function (editor) {
-      var status = [];
-      function add(str, separator) {
-        str && status.push(str, separator || "|");
-      }
+(function(){
+    this.updateStatus = function(editor) {
+        var status = [];
+        function add(str, separator) {
+            str && status.push(str, separator || "|");
+        }
 
-      add(editor.keyBinding.getStatusText(editor));
-      if (editor.commands.recording) add("REC");
-
-      var sel = editor.selection;
-      var c = sel.lead;
-
-      if (!sel.isEmpty()) {
-        var r = editor.getSelectionRange();
-        add(
-          "(" +
-            (parseInt(r.end.row + 1) - parseInt(r.start.row + 1)) +
-            ":" +
-            (parseInt(r.end.column + 1) - parseInt(r.start.column + 1)) +
-            ")",
-          " "
-        );
-      }
-      add(parseInt(c.row + 1) + ":" + parseInt(c.column + 1), " ");
-      if (sel.rangeCount) add("[" + sel.rangeCount + "]", " ");
-      status.pop();
-      this.element.textContent = status.join("");
+        add(editor.keyBinding.getStatusText(editor));
+        if (editor.commands.recording)
+            add("REC");
+        
+        var sel = editor.selection;
+        var c = sel.lead;
+        
+        if (!sel.isEmpty()) {
+            var r = editor.getSelectionRange();
+            add("(" + (r.end.row + 1 - r.start.row + 1) + ":"  +(r.end.column + 1 - r.start.column + 1) + ")", " ");
+        }
+        add(c.row + 1 + ":" + c.column + 1, " ");        
+        if (sel.rangeCount)
+            add("[" + sel.rangeCount + "]", " ");
+        status.pop();
+        this.element.textContent = status.join("");
     };
-  }.call(StatusBar.prototype));
+}).call(StatusBar.prototype);
 
-  exports.StatusBar = StatusBar;
+exports.StatusBar = StatusBar;
+
 });
 
 define("ace/snippets",["require","exports","module","ace/lib/dom","ace/lib/oop","ace/lib/event_emitter","ace/lib/lang","ace/range","ace/range_list","ace/keyboard/hash_handler","ace/tokenizer","ace/clipboard","ace/editor"], function(require, exports, module) {
@@ -6154,49 +6146,18 @@ dom.importCssString("\
     opacity: 0.5;\
     margin: 0.9em;\
 }\
+.ace_completion-message {\
+    color: blue;\
+}\
 .ace_editor.ace_autocomplete .ace_completion-highlight{\
     color: #2d69c7;\
 }\
 .ace_dark.ace_editor.ace_autocomplete .ace_completion-highlight{\
     color: #93ca12;\
 }\
-.ace_autocomplete.ace-tm .ace_marker-layer .ace_active-line {\
-    background-color: #CAD6FA;\
-    z-index: 1;\
-}\
-.ace_autocomplete.ace-tm .ace_line-hover {\
-    border: 1px solid #abbffe;\
-    margin-top: -1px;\
-    background: rgba(233,233,253,0.4);\
-}\
-.ace_autocomplete .ace_line-hover {\
-    position: absolute;\
-    z-index: 2;\
-}\
-.ace_autocomplete .ace_scroller {\
-    background: none;\
-    border: none;\
-    box-shadow: none;\
-}\
-.ace_rightAlignedText {\
-    color: gray;\
-    display: inline-block;\
-    position: absolute;\
-    right: 4px;\
-    text-align: right;\
-    z-index: -1;\
-}\
-.ace_completion-message {\
-    color: blue;\
-}\
-.ace_autocomplete .ace_completion-highlight{\
-    text-shadow: 0 0 0.01em;\
-}\
-.ace_autocomplete {\
-    width: 280px;\
+.ace_editor.ace_autocomplete {\
+    width: 300px;\
     z-index: 200000;\
-    background: #fbfbfb;\
-    color: #444;\
     border: 1px lightgray solid;\
     position: fixed;\
     box-shadow: 2px 3px 5px rgba(0,0,0,.2);\
