@@ -13,7 +13,8 @@ snippet v\n\
 ";
 exports.scope = "snippets";
 
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/snippets/snippets"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

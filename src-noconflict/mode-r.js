@@ -302,7 +302,8 @@ ace.define("ace/mode/r",["require","exports","module","ace/unicode","ace/range",
        this.snippetFileId = "ace/snippets/r";
    }).call(Mode.prototype);
    exports.Mode = Mode;
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/mode/r"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

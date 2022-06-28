@@ -87,7 +87,8 @@ snippet tryf\n\
 ";
 exports.scope = "dart";
 
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/snippets/dart"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

@@ -1845,6 +1845,7 @@ var supportedModes = {
     RDoc:        ["Rd"],
     Red:         ["red|reds"],
     RHTML:       ["Rhtml"],
+    Robot:       ["robot|resource"],
     RST:         ["rst"],
     Ruby:        ["rb|ru|gemspec|rake|^Guardfile|^Rakefile|^Gemfile"],
     Rust:        ["rs"],
@@ -4461,54 +4462,62 @@ exports.OptionPanel = OptionPanel;
 
 });
 
-define("ace/ext/statusbar",["require","exports","module","ace/lib/dom","ace/lib/lang"], function(require, exports, module) {
-"use strict";
-var dom = require("../lib/dom");
-var lang = require("../lib/lang");
+define("ace/ext/statusbar",["require","exports","module","ace/lib/dom","ace/lib/lang"], function (require, exports, module) {
+  "use strict";
+  var dom = require("../lib/dom");
+  var lang = require("../lib/lang");
 
-var StatusBar = function(editor, parentNode) {
+  var StatusBar = function (editor, parentNode) {
     this.element = dom.createElement("div");
     this.element.className = "ace_status-indicator";
     this.element.style.cssText = "display: inline-block;";
     parentNode.appendChild(this.element);
 
-    var statusUpdate = lang.delayedCall(function(){
-        this.updateStatus(editor);
-    }.bind(this)).schedule.bind(null, 100);
-    
+    var statusUpdate = lang
+      .delayedCall(
+        function () {
+          this.updateStatus(editor);
+        }.bind(this)
+      )
+      .schedule.bind(null, 100);
+
     editor.on("changeStatus", statusUpdate);
     editor.on("changeSelection", statusUpdate);
     editor.on("keyboardActivity", statusUpdate);
-};
+  };
 
-(function(){
-    this.updateStatus = function(editor) {
-        var status = [];
-        function add(str, separator) {
-            str && status.push(str, separator || "|");
-        }
+  (function () {
+    this.updateStatus = function (editor) {
+      var status = [];
+      function add(str, separator) {
+        str && status.push(str, separator || "|");
+      }
 
-        add(editor.keyBinding.getStatusText(editor));
-        if (editor.commands.recording)
-            add("REC");
-        
-        var sel = editor.selection;
-        var c = sel.lead;
-        
-        if (!sel.isEmpty()) {
-            var r = editor.getSelectionRange();
-            add("(" + (r.end.row + 1 - r.start.row + 1) + ":"  +(r.end.column + 1 - r.start.column + 1) + ")", " ");
-        }
-        add(c.row + 1 + ":" + c.column + 1, " ");        
-        if (sel.rangeCount)
-            add("[" + sel.rangeCount + "]", " ");
-        status.pop();
-        this.element.textContent = status.join("");
+      add(editor.keyBinding.getStatusText(editor));
+      if (editor.commands.recording) add("REC");
+
+      var sel = editor.selection;
+      var c = sel.lead;
+
+      if (!sel.isEmpty()) {
+        var r = editor.getSelectionRange();
+        add(
+          "(" +
+            (parseInt(r.end.row + 1) - parseInt(r.start.row + 1)) +
+            ":" +
+            (parseInt(r.end.column + 1) - parseInt(r.start.column + 1)) +
+            ")",
+          " "
+        );
+      }
+      add(parseInt(c.row + 1) + ":" + parseInt(c.column + 1), " ");
+      if (sel.rangeCount) add("[" + sel.rangeCount + "]", " ");
+      status.pop();
+      this.element.textContent = status.join("");
     };
-}).call(StatusBar.prototype);
+  }.call(StatusBar.prototype));
 
-exports.StatusBar = StatusBar;
-
+  exports.StatusBar = StatusBar;
 });
 
 define("ace/snippets",["require","exports","module","ace/lib/dom","ace/lib/oop","ace/lib/event_emitter","ace/lib/lang","ace/range","ace/range_list","ace/keyboard/hash_handler","ace/tokenizer","ace/clipboard","ace/editor"], function(require, exports, module) {
@@ -6385,6 +6394,8 @@ var Autocomplete = function() {
         if (data.completer && data.completer.insertMatch) {
             data.completer.insertMatch(this.editor, data);
         } else {
+            if (!completions)
+                return false;
             if (completions.filterText) {
                 var ranges = this.editor.selection.getAllRanges();
                 for (var i = 0, range; range = ranges[i]; i++) {
@@ -7851,7 +7862,8 @@ function moveFocus() {
         env.editor.focus();
 }
 
-});                (function() {
+});
+                (function() {
                     window.require(["kitchen-sink/demo"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

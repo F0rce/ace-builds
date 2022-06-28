@@ -14319,7 +14319,8 @@ ace.define("ace/mode/php_laravel_blade",["require","exports","module","ace/lib/o
     }).call(Mode.prototype);
 
     exports.Mode = Mode;
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/mode/php_laravel_blade"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

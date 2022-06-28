@@ -92,7 +92,8 @@ ace.define("ace/mode/aql",["require","exports","module","ace/lib/oop","ace/mode/
 
   exports.Mode = Mode;
 
-  });                (function() {
+  });
+                (function() {
                     ace.require(["ace/mode/aql"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

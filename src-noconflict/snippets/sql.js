@@ -30,7 +30,8 @@ snippet s*\n\
 ";
 exports.scope = "sql";
 
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/snippets/sql"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

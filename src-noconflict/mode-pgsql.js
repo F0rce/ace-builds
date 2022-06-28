@@ -319,7 +319,7 @@ var PythonHighlightRules = function() {
             regex: "[\\]\\)\\}]"
         }, {
             token: ["keyword", "text", "entity.name.function"],
-            regex: "(def|class)(\\s+)(\\w+)"
+            regex: "(def|class)(\\s+)([\\u00BF-\\u1FFF\\u2C00-\\uD7FF\\w]+)"
          }, {
             token: "text",
             regex: "\\s+"
@@ -1739,7 +1739,8 @@ oop.inherits(Mode, TextMode);
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/mode/pgsql"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

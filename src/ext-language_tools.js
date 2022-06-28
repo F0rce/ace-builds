@@ -1555,6 +1555,8 @@ var Autocomplete = function() {
         if (data.completer && data.completer.insertMatch) {
             data.completer.insertMatch(this.editor, data);
         } else {
+            if (!completions)
+                return false;
             if (completions.filterText) {
                 var ranges = this.editor.selection.getAllRanges();
                 for (var i = 0, range; range = ranges[i]; i++) {
@@ -2165,7 +2167,8 @@ require("../config").defineOptions(Editor.prototype, "editor", {
         value: false
     }
 });
-});                (function() {
+});
+                (function() {
                     window.require(["ace/ext/language_tools"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

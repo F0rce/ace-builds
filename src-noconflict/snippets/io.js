@@ -66,7 +66,8 @@ exports.snippets = [
 ];
 exports.scope = "io";
 
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/snippets/io"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

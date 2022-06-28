@@ -412,7 +412,8 @@ ace.define("ace/mode/asl",["require","exports","module","ace/lib/oop","ace/mode/
     }).call(Mode.prototype);
 
     exports.Mode = Mode;
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/mode/asl"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

@@ -1586,6 +1586,8 @@ var Autocomplete = function() {
         if (data.completer && data.completer.insertMatch) {
             data.completer.insertMatch(this.editor, data);
         } else {
+            if (!completions)
+                return false;
             if (completions.filterText) {
                 var ranges = this.editor.selection.getAllRanges();
                 for (var i = 0, range; range = ranges[i]; i++) {
@@ -2257,6 +2259,7 @@ var supportedModes = {
     RDoc:        ["Rd"],
     Red:         ["red|reds"],
     RHTML:       ["Rhtml"],
+    Robot:       ["robot|resource"],
     RST:         ["rst"],
     Ruby:        ["rb|ru|gemspec|rake|^Guardfile|^Rakefile|^Gemfile"],
     Rust:        ["rs"],
@@ -2800,7 +2803,8 @@ dom.importCssString(".ace_prompt_container {\
 
 exports.prompt = prompt;
 
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/ext/prompt"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

@@ -23,7 +23,8 @@ snippet declare\n\
 ";
 exports.scope = "drools";
 
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/snippets/drools"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

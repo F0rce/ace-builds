@@ -2630,7 +2630,8 @@ VisualforceMode.prototype.emmetConfig = {
 
 exports.Mode = VisualforceMode;
 
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/mode/visualforce"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

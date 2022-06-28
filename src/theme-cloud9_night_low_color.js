@@ -108,7 +108,8 @@ background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgb
 
   var dom = require("../lib/dom");
   dom.importCssString(exports.cssText, exports.cssClass);
-});                (function() {
+});
+                (function() {
                     window.require(["ace/theme/cloud9_night_low_color"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

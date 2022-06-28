@@ -412,7 +412,8 @@ exports.handler.addCommands([{
     exports.handler.bindKey(binding.bindKey, command || binding.name);
 });
 
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/keyboard/sublime"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

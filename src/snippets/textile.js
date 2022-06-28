@@ -34,7 +34,8 @@ snippet fn\n\
 ";
 exports.scope = "textile";
 
-});                (function() {
+});
+                (function() {
                     window.require(["ace/snippets/textile"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

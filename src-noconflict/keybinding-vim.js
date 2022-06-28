@@ -6273,7 +6273,8 @@ dom.importCssString(".normal-mode .ace_cursor{\
   exports.handler.defaultKeymap = defaultKeymap;
   exports.handler.actions = actions;
   exports.Vim = Vim;
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/keyboard/vim"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

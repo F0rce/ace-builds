@@ -354,7 +354,8 @@ ace.define("ace/mode/scrypt",["require","exports","module","ace/lib/oop","ace/mo
   }).call(Mode.prototype);
 
   exports.Mode = Mode;
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/mode/scrypt"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

@@ -137,7 +137,8 @@ oop.inherits(Mode, TextMode);
 
 exports.Mode = Mode;
 
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/mode/diff"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

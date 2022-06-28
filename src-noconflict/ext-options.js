@@ -284,6 +284,7 @@ var supportedModes = {
     RDoc:        ["Rd"],
     Red:         ["red|reds"],
     RHTML:       ["Rhtml"],
+    Robot:       ["robot|resource"],
     RST:         ["rst"],
     Ruby:        ["rb|ru|gemspec|rake|^Guardfile|^Rakefile|^Gemfile"],
     Rust:        ["rs"],
@@ -793,7 +794,8 @@ var OptionPanel = function(editor, element) {
 
 exports.OptionPanel = OptionPanel;
 
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/ext/options"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

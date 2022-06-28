@@ -284,6 +284,7 @@ var supportedModes = {
     RDoc:        ["Rd"],
     Red:         ["red|reds"],
     RHTML:       ["Rhtml"],
+    Robot:       ["robot|resource"],
     RST:         ["rst"],
     Ruby:        ["rb|ru|gemspec|rake|^Guardfile|^Rakefile|^Gemfile"],
     Rust:        ["rs"],
@@ -814,7 +815,8 @@ module.exports.init = function() {
         showSettingsMenu(this);
     };
 };
-});                (function() {
+});
+                (function() {
                     window.require(["ace/ext/settings_menu"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

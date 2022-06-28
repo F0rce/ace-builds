@@ -387,7 +387,8 @@ snippet ifeil\\n\\\n\
 ";
 exports.scope = "php";
 
-});                (function() {
+});
+                (function() {
                     window.require(["ace/snippets/php"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

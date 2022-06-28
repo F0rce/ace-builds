@@ -1708,7 +1708,8 @@ snippet docs (función con parámetros)\n\
 ";
 exports.scope = "gobstones";
 
-});                (function() {
+});
+                (function() {
                     ace.require(["ace/snippets/gobstones"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

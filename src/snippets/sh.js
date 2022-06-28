@@ -87,7 +87,8 @@ snippet getopt\n\
 ";
 exports.scope = "sh";
 
-});                (function() {
+});
+                (function() {
                     window.require(["ace/snippets/sh"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;

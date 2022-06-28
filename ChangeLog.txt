@@ -1,3 +1,8 @@
+2022.06.28 Version 1.7.0 (ajaxorg/F0rce)
+* Merged v1.7.0 (ajaxorg/ace) as v1.7.0 (f0rce/ace-builds)
+--> Changelog: https://github.com/ajaxorg/ace/releases/tag/v1.7.0
+* Fixed wrong string concatenation within the statusbar
+
 2022.06.13 Version 1.6.3 (ajaxorg)
 * Merged v1.6.0 (ajaxorg/ace) as v1.6.3 (f0rce/ace-builds)
 

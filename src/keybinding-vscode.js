@@ -252,7 +252,8 @@ exports.handler.addCommands([{
     exports.handler.bindKey(binding.bindKey, command || binding.name);
 });
 
-});                (function() {
+});
+                (function() {
                     window.require(["ace/keyboard/vscode"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;
