@@ -1279,7 +1279,8 @@ MockRenderer.prototype.adjustWrapLimit = function () {
 
 });
 
-define("kitchen-sink/dev_util",["require","exports","module","ace/lib/dom","ace/lib/event","ace/range","ace/edit_session","ace/undomanager","ace/lib/oop","ace/lib/dom","ace/test/user","ace/range","ace/editor","ace/test/asyncjs/assert","ace/test/asyncjs/async","ace/undomanager","ace/edit_session","ace/test/mockrenderer","ace/lib/event_emitter"], function(require, exports, module) {
+define("kitchen-sink/dev_util",["require","exports","module","ace/ace","ace/lib/dom","ace/lib/event","ace/range","ace/edit_session","ace/undomanager","ace/lib/oop","ace/lib/dom","ace/test/user","ace/range","ace/editor","ace/test/asyncjs/assert","ace/test/asyncjs/async","ace/undomanager","ace/edit_session","ace/test/mockrenderer","ace/lib/event_emitter"], function(require, exports, module) {
+var ace = require("ace/ace");
 var dom = require("ace/lib/dom");
 var event = require("ace/lib/event");
 var Range = require("ace/range").Range;
@@ -1299,7 +1300,7 @@ function def(o, key, get) {
         console.error(e);
     }
 }
-def(window, "ace", function(){  return window.env.editor });
+def(window, "ace", function(){  return ace });
 def(window, "editor", function(){  return window.env.editor == logEditor ? editor : window.env.editor });
 def(window, "session", function(){ return window.editor.session });
 def(window, "split", function(){  return window.env.split });
@@ -4467,7 +4468,10 @@ define("ace/ext/statusbar",["require","exports","module","ace/lib/dom","ace/lib/
   var dom = require("../lib/dom");
   var lang = require("../lib/lang");
 
-  var StatusBar = function (editor, parentNode) {
+  var StatusBar = function (editor, parentNode, startIndex) {
+    if (startIndex == undefined) {
+      startIndex = 1;
+    }
     this.element = dom.createElement("div");
     this.element.className = "ace_status-indicator";
     this.element.style.cssText = "display: inline-block;";
@@ -4476,7 +4480,7 @@ define("ace/ext/statusbar",["require","exports","module","ace/lib/dom","ace/lib/
     var statusUpdate = lang
       .delayedCall(
         function () {
-          this.updateStatus(editor);
+          this.updateStatus(editor, startIndex);
         }.bind(this)
       )
       .schedule.bind(null, 100);
@@ -4487,7 +4491,7 @@ define("ace/ext/statusbar",["require","exports","module","ace/lib/dom","ace/lib/
   };
 
   (function () {
-    this.updateStatus = function (editor) {
+    this.updateStatus = function (editor, startIndex) {
       var status = [];
       function add(str, separator) {
         str && status.push(str, separator || "|");
@@ -4503,14 +4507,19 @@ define("ace/ext/statusbar",["require","exports","module","ace/lib/dom","ace/lib/
         var r = editor.getSelectionRange();
         add(
           "(" +
-            (parseInt(r.end.row + 1) - parseInt(r.start.row + 1)) +
+            (parseInt(r.end.row + startIndex) -
+              parseInt(r.start.row + startIndex)) +
             ":" +
-            (parseInt(r.end.column + 1) - parseInt(r.start.column + 1)) +
+            (parseInt(r.end.column + startIndex) -
+              parseInt(r.start.column + startIndex)) +
             ")",
           " "
         );
       }
-      add(parseInt(c.row + 1) + ":" + parseInt(c.column + 1), " ");
+      add(
+        parseInt(c.row + startIndex) + ":" + parseInt(c.column + startIndex),
+        " "
+      );
       if (sel.rangeCount) add("[" + sel.rangeCount + "]", " ");
       status.pop();
       this.element.textContent = status.join("");
@@ -7353,10 +7362,8 @@ exports.commands = [{
 
 });
 
-define("kitchen-sink/demo",["require","exports","module","ace/lib/fixoldbrowsers","ace/ext/rtl","ace/multi_select","kitchen-sink/inline_editor","kitchen-sink/dev_util","kitchen-sink/file_drop","ace/config","ace/lib/dom","ace/lib/net","ace/lib/lang","ace/lib/event","ace/theme/textmate","ace/edit_session","ace/undomanager","ace/keyboard/hash_handler","ace/virtual_renderer","ace/editor","ace/ext/whitespace","kitchen-sink/doclist","kitchen-sink/layout","kitchen-sink/util","ace/ext/elastic_tabstops_lite","ace/incremental_search","kitchen-sink/token_tooltip","ace/config","ace/worker/worker_client","ace/split","ace/ext/options","ace/ext/statusbar","ace/ext/emmet","ace/placeholder","ace/snippets","ace/ext/language_tools","ace/ext/beautify","ace/keyboard/keybinding","ace/commands/command_manager"], function(require, exports, module) {
+define("kitchen-sink/demo",["require","exports","module","ace/ext/rtl","ace/multi_select","kitchen-sink/inline_editor","kitchen-sink/dev_util","kitchen-sink/file_drop","ace/config","ace/lib/dom","ace/lib/net","ace/lib/lang","ace/lib/event","ace/theme/textmate","ace/edit_session","ace/undomanager","ace/keyboard/hash_handler","ace/virtual_renderer","ace/editor","ace/ext/whitespace","kitchen-sink/doclist","kitchen-sink/layout","kitchen-sink/util","ace/ext/elastic_tabstops_lite","ace/incremental_search","kitchen-sink/token_tooltip","ace/config","ace/worker/worker_client","ace/split","ace/ext/options","ace/ext/statusbar","ace/ext/emmet","ace/placeholder","ace/snippets","ace/ext/language_tools","ace/ext/beautify","ace/keyboard/keybinding","ace/commands/command_manager"], function(require, exports, module) {
 "use strict";
-
-require("ace/lib/fixoldbrowsers");
 
 require("ace/ext/rtl");
 
@@ -7366,7 +7373,12 @@ var devUtil = require("./dev_util");
 require("./file_drop");
 
 var config = require("ace/config");
-config.init();
+config.setLoader(function(moduleName, cb) {
+    require([moduleName], function(module) {
+        cb(null, module)
+    })
+});
+
 var env = {};
 
 var dom = require("ace/lib/dom");

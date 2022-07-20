@@ -3,7 +3,10 @@ ace.define("ace/ext/statusbar",["require","exports","module","ace/lib/dom","ace/
   var dom = require("../lib/dom");
   var lang = require("../lib/lang");
 
-  var StatusBar = function (editor, parentNode) {
+  var StatusBar = function (editor, parentNode, startIndex) {
+    if (startIndex == undefined) {
+      startIndex = 1;
+    }
     this.element = dom.createElement("div");
     this.element.className = "ace_status-indicator";
     this.element.style.cssText = "display: inline-block;";
@@ -12,7 +15,7 @@ ace.define("ace/ext/statusbar",["require","exports","module","ace/lib/dom","ace/
     var statusUpdate = lang
       .delayedCall(
         function () {
-          this.updateStatus(editor);
+          this.updateStatus(editor, startIndex);
         }.bind(this)
       )
       .schedule.bind(null, 100);
@@ -23,7 +26,7 @@ ace.define("ace/ext/statusbar",["require","exports","module","ace/lib/dom","ace/
   };
 
   (function () {
-    this.updateStatus = function (editor) {
+    this.updateStatus = function (editor, startIndex) {
       var status = [];
       function add(str, separator) {
         str && status.push(str, separator || "|");
@@ -39,14 +42,19 @@ ace.define("ace/ext/statusbar",["require","exports","module","ace/lib/dom","ace/
         var r = editor.getSelectionRange();
         add(
           "(" +
-            (parseInt(r.end.row + 1) - parseInt(r.start.row + 1)) +
+            (parseInt(r.end.row + startIndex) -
+              parseInt(r.start.row + startIndex)) +
             ":" +
-            (parseInt(r.end.column + 1) - parseInt(r.start.column + 1)) +
+            (parseInt(r.end.column + startIndex) -
+              parseInt(r.start.column + startIndex)) +
             ")",
           " "
         );
       }
-      add(parseInt(c.row + 1) + ":" + parseInt(c.column + 1), " ");
+      add(
+        parseInt(c.row + startIndex) + ":" + parseInt(c.column + startIndex),
+        " "
+      );
       if (sel.rangeCount) add("[" + sel.rangeCount + "]", " ");
       status.pop();
       this.element.textContent = status.join("");
