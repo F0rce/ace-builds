@@ -1624,7 +1624,7 @@ var PgsqlHighlightRules = function() {
                 next : "javascript-start"
             }, {
                 token : "string",
-                regex : "\\$[\\w_0-9]*\\$$", // dollar quote at the end of a line
+                regex : "\\$\\$$",
                 next : "dollarSql"
             }, {
                 token : "string",
@@ -1641,8 +1641,8 @@ var PgsqlHighlightRules = function() {
                 regex : "\\/\\*",
                 next : "commentDollarSql"
             }, {
-                token : "string", // end quoting with dollar at the start of a line
-                regex : "^\\$[\\w_0-9]*\\$",
+                token : ["keyword", "statementEnd", "text", "string"], // end quoting with dollar at the start of a line
+                regex : "(^|END)(;)?(\\s*)(\\$\\$)",
                 next : "statement"
             }, {
                 token : "string",
