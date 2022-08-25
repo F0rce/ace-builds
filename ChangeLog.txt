@@ -1,5 +1,9 @@
-2202.07.27 Version 1.8.1 (ajaxorg)
-* Merged v1.8.1 (ajaxorg/ace) as v1.7.1 (f0rce/ace-builds)
+2022.08.25 Version 1.9.6 (ajaxorg)
+* Merged v1.9.6 (ajaxorg/ace) as v1.9.6 (f0rce/ace-builds)
+--> Changelog: https://github.com/ajaxorg/ace/releases/tag/v1.9.6
+
+2022.07.27 Version 1.8.1 (ajaxorg)
+* Merged v1.8.1 (ajaxorg/ace) as v1.8.1 (f0rce/ace-builds)
 --> Changelog: https://github.com/ajaxorg/ace/releases/tag/v1.8.1
 
 2022.06.28 Version 1.7.1 (ajaxorg/F0rce)
